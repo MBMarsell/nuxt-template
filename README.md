@@ -1,6 +1,7 @@
 # Nuxt 3 Starter Template
 
-A production-ready Nuxt 3 starter template with TypeScript, Tailwind CSS, Shadcn Vue, and more.
+A small Nuxt 3 Template that can be used for a quicker start when creating a new project.
+Easy to configure for the projects needs and easily extendable with more packages and modules👌
 
 ## Features
 
@@ -11,7 +12,6 @@ A production-ready Nuxt 3 starter template with TypeScript, Tailwind CSS, Shadcn
 - ✨ Auto-animate with FormKit
 - 🧪 Testing setup with Vitest
 - 📝 ESLint + Prettier
-- 🔍 SEO optimized
 - 🚀 Type-safe development with TypeScript
 
 ### Quick Start
