@@ -47,9 +47,7 @@
 
     <footer class="border-t">
       <div class="container p-4 mx-auto text-sm text-center text-muted-foreground">
-        <p>
-          &copy; {{ new Date().getFullYear() }} Your Company. All rights reserved.
-        </p>
+        <p>&copy; {{ new Date().getFullYear() }} Your Company. All rights reserved.</p>
       </div>
     </footer>
   </div>

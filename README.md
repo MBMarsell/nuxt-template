@@ -17,12 +17,14 @@ A production-ready Nuxt 3 starter template with TypeScript, Tailwind CSS, Shadcn
 ## Quick Start
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/yourusername/nuxt-template
 cd nuxt-template
 ```
 
 2. Install dependencies:
+
 ```bash
 # npm
 npm install
@@ -38,6 +40,7 @@ bun install
 ```
 
 3. Start development server:
+
 ```bash
 # npm
 npm run dev
