@@ -19,7 +19,7 @@ A production-ready Nuxt 3 starter template with TypeScript, Tailwind CSS, Shadcn
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/nuxt-template
+git clone https://github.com/MBMarsell/nuxt-template
 cd nuxt-template
 ```
 
