@@ -325,7 +325,7 @@
     "welcome": "Welcome to the Nuxt 3 starter template",
     "english": "English",
     "norwegian": "Norwegian",
-    "description": "A production-ready Nuxt 3 starter template",
+    "description": "A simple Nuxt 3 template for a quicker project start.",
     "features": {
       "i18n": {
         "title": "Internationalization",
@@ -356,7 +356,7 @@
     "welcome": "Velkommen til Nuxt 3 startmalen",
     "english": "Engelsk",
     "norwegian": "Norsk",
-    "description": "En produksjonsklar Nuxt 3 startmal",
+    "description": "En enkel Nuxt 3 mal for en raskere start.",
     "features": {
       "i18n": {
         "title": "Internasjonalisering",
