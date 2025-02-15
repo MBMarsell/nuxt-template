@@ -6,9 +6,9 @@
 </script>
 
 <template>
-  <div class="flex flex-col min-h-screen">
+  <div class="flex min-h-screen flex-col">
     <header class="border-b">
-      <nav class="container flex items-center justify-between p-4 mx-auto">
+      <nav class="container mx-auto flex items-center justify-between p-4">
         <NuxtLink
           to="/"
           class="text-xl font-bold"
@@ -46,7 +46,7 @@
     </main>
 
     <footer class="border-t">
-      <div class="container p-4 mx-auto text-sm text-center text-muted-foreground">
+      <div class="container mx-auto p-4 text-center text-sm text-muted-foreground">
         <p>&copy; {{ new Date().getFullYear() }} Your Company. All rights reserved.</p>
       </div>
     </footer>

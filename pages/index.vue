@@ -5,6 +5,105 @@
 
   const exampleStore = useExampleStore();
 
+  // Array of fun emojis to randomly select from
+  const emojis = [
+    '🚀',
+    '🎨',
+    '🎮',
+    '🎵',
+    '🌈',
+    '✨',
+    '🎪',
+    '🎭',
+    '🎯',
+    '🎲',
+    '🎸',
+    '🎺',
+    '😬',
+    '🌟',
+    '🎩',
+    '🎡',
+    '🎠',
+    '🎢',
+    '🎬',
+    '🎧',
+    '🎹',
+    '🎷',
+    '🎻',
+    '🎈',
+    '🎉',
+    '🎊',
+    '🎌',
+    '🎎',
+    '🎏',
+    '🎐',
+    '🎑',
+    '🎃',
+    '🌞',
+    '🌙',
+    '⭐',
+    '🌠',
+    '🌍',
+    '🦄',
+    '🐉',
+    '🦋',
+    '🐬',
+    '🌺',
+    '😊',
+    '😄',
+    '😃',
+    '😅',
+    '😂',
+    '🤣',
+    '😇',
+    '😉',
+    '😍',
+    '🥰',
+    '😎',
+    '🤩',
+    '😋',
+    '😜',
+    '🤪',
+    '😝',
+    '🤗',
+    '🤓',
+    '😌',
+    '😏',
+  ];
+
+  const getRandomEmoji = () => emojis[Math.floor(Math.random() * emojis.length)];
+
+  // Initialize items with emojis
+  const items = ref([
+    { id: 1, text: 'Item 1', emoji: getRandomEmoji() },
+    { id: 2, text: 'Item 2', emoji: getRandomEmoji() },
+    { id: 3, text: 'Item 3', emoji: getRandomEmoji() },
+    { id: 4, text: 'Item 4', emoji: getRandomEmoji() },
+    { id: 5, text: 'Item 5', emoji: getRandomEmoji() },
+    { id: 6, text: 'Item 6', emoji: getRandomEmoji() },
+  ]);
+  const nextId = ref(11);
+
+  const addItem = () => {
+    items.value.push({
+      id: nextId.value,
+      text: `Item ${nextId.value}`,
+      emoji: getRandomEmoji(),
+    });
+    nextId.value++;
+  };
+
+  const removeItem = (item: { id: number; text: string; emoji: string }) => {
+    const index = items.value.findIndex((i) => i.id === item.id);
+    if (index > -1) {
+      items.value.splice(index, 1);
+    }
+  };
+
+  const shuffleList = () => {
+    items.value = items.value.sort(() => Math.random() - 0.5);
+  };
+
   const features = computed(() => [
     {
       title: t('features.i18n.title'),
@@ -35,6 +134,39 @@
   const toggleTheme = () => {
     colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark';
   };
+
+  const draggingId = ref<number | null>(null);
+  const containerRef = ref<HTMLElement | null>(null);
+
+  const onDragStart = (id: number) => {
+    draggingId.value = id;
+  };
+
+  const onDragEnd = () => {
+    draggingId.value = null;
+  };
+
+  useDropZone(containerRef, {
+    onDrop: (files: File[] | null, event: DragEvent) => {
+      if (draggingId.value !== null) {
+        const draggedItem = items.value.find((item) => item.id === draggingId.value);
+        const currentIndex = items.value.findIndex((item) => item.id === draggingId.value);
+
+        // Get the target element from the drop event
+        const target = event.target as HTMLElement;
+        const targetItem = target.closest('li');
+        if (targetItem) {
+          const targetId = Number(targetItem.getAttribute('data-id'));
+          const targetIndex = items.value.findIndex((item) => item.id === targetId);
+
+          if (draggedItem && currentIndex !== -1 && targetIndex !== -1) {
+            items.value.splice(currentIndex, 1);
+            items.value.splice(targetIndex, 0, draggedItem);
+          }
+        }
+      }
+    },
+  });
 </script>
 
 <template>
@@ -104,6 +236,86 @@
         </div>
       </div>
     </div>
+
+    <!-- Animate Container -->
+    <div class="p-6 mt-12 border rounded-lg bg-card">
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center gap-2">
+          <Icon
+            name="lucide:sparkles"
+            class="w-8 h-8"
+          />
+          <h2 class="text-2xl font-bold">{{ t('features.animate.title') }}</h2>
+        </div>
+        <div class="space-x-2">
+          <Button
+            variant="outline"
+            @click="addItem"
+          >
+            <Icon
+              name="lucide:plus"
+              class="w-4 h-4 mr-2"
+            />
+            Add Item
+          </Button>
+          <Button
+            variant="outline"
+            @click="shuffleList"
+          >
+            <Icon
+              name="lucide:shuffle"
+              class="w-4 h-4 mr-2"
+            />
+            Shuffle
+          </Button>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <p class="text-sm text-muted-foreground">{{ t('features.animate.description') }}</p>
+      </div>
+
+      <ul
+        ref="containerRef"
+        v-auto-animate
+        class="grid gap-4 md:grid-cols-2 lg:grid-cols-3"
+      >
+        <li
+          v-for="item in items"
+          :key="item.id"
+          :data-id="item.id"
+          draggable="true"
+          :class="[
+            'rounded-lg border bg-card p-4 transition-colors hover:bg-accent',
+            { 'opacity-50': draggingId === item.id },
+          ]"
+          @dragstart="onDragStart(item.id)"
+          @dragend="onDragEnd"
+        >
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="text-xl">{{ item.emoji }}</span>
+              <span class="font-medium">{{ item.text }}</span>
+            </div>
+            <Button
+              class="w-8 h-8"
+              variant="ghost"
+              size="icon"
+              @click="() => removeItem(item)"
+            >
+              <Icon
+                name="lucide:grip"
+                class="w-4 h-4 cursor-pointer text-muted-foreground"
+              />
+              <Icon
+                name="lucide:x"
+                class="w-4 h-4"
+              />
+            </Button>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -132,6 +344,11 @@
       "ui": {
         "title": "UI Components",
         "description": "Shadcn components with Tailwind CSS"
+      },
+      "animate": {
+        "title": "Auto Animate",
+        "description": "Smooth animations for adding, removing, and reordering elements",
+        "shuffle": "Shuffle List"
       }
     }
   },
@@ -158,6 +375,11 @@
       "ui": {
         "title": "UI-komponenter",
         "description": "Shadcn-komponenter med Tailwind CSS"
+      },
+      "animate": {
+        "title": "Auto Animate",
+        "description": "Jevne animasjoner for å legge til, fjerne og omorganisere elementer",
+        "shuffle": "Bland Liste"
       }
     }
   }
