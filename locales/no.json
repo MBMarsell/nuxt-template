@@ -1,0 +1,26 @@
+{
+  "general": {
+    "welcome": "Velkommen til nettsiden",
+    "actions": {
+      "login": "Logg inn",
+      "logout": "Logg ut",
+      "register": "Registrer",
+      "submit": "Send",
+      "cancel": "Avbryt",
+      "delete": "Slett",
+      "edit": "Rediger",
+      "save": "Lagre",
+      "close": "Lukk"
+    }
+  },
+  "validation": {
+    "required": "Dette feltet er påkrevd",
+    "email": "Dette feltet må være en gyldig e-postadresse",
+    "min": "Dette feltet må være minst {min} tegn langt",
+    "max": "Dette feltet må være høyst {max} tegn langt",
+    "minlength": "Dette feltet må være minst {minlength} tegn langt",
+    "maxlength": "Dette feltet må være høyst {maxlength} tegn langt",
+    "min_value": "Dette feltet må være minst {min_value}",
+    "max_value": "Dette feltet må være høyst {max_value}"
+  }
+}

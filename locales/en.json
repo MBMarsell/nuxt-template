@@ -1,0 +1,26 @@
+{
+  "general": {
+    "welcome": "Welcome to the website",
+    "actions": {
+      "login": "Login",
+      "logout": "Logout",
+      "register": "Register",
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "edit": "Edit",
+      "save": "Save",
+      "close": "Close"
+    }
+  },
+  "validation": {
+    "required": "This field is required",
+    "email": "This field must be a valid email address",
+    "min": "This field must be at least {min} characters long",
+    "max": "This field must be at most {max} characters long",
+    "minlength": "This field must be at least {minlength} characters long",
+    "maxlength": "This field must be at most {maxlength} characters long",
+    "min_value": "This field must be at least {min_value}",
+    "max_value": "This field must be at most {max_value}"
+  }
+}
