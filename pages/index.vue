@@ -326,6 +326,7 @@
     "english": "English",
     "norwegian": "Norwegian",
     "description": "A simple Nuxt 3 template for a quicker project start.",
+    "selectLanguage": "Select Language",
     "features": {
       "i18n": {
         "title": "Internationalization",
@@ -357,6 +358,7 @@
     "english": "Engelsk",
     "norwegian": "Norsk",
     "description": "En enkel Nuxt 3 mal for en raskere start.",
+    "selectLanguage": "Velg språk",
     "features": {
       "i18n": {
         "title": "Internasjonalisering",

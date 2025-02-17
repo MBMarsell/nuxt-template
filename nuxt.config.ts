@@ -4,6 +4,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
 
+  // Set compatibility version for future Nuxt versions
+  future: {
+    compatibilityVersion: 4,
+  },
+
   // Modules
   modules: [
     // UI & Styling
@@ -11,24 +16,25 @@ export default defineNuxtConfig({
     'shadcn-nuxt',
     '@nuxtjs/color-mode',
     '@nuxt/icon',
-    
+
     // Forms & Validation
     '@vee-validate/nuxt',
-    
+
     // Internationalization
     '@nuxtjs/i18n',
-    
+
     // Utilities
     '@vueuse/nuxt',
     '@formkit/auto-animate',
-    
+
     // State Management
     '@pinia/nuxt',
-    
+
     // Development & Testing
     '@nuxt/test-utils/module',
     '@nuxt/image',
     '@nuxt/eslint',
+    '@nuxtjs/google-fonts',
   ],
 
   // UI Configuration
@@ -73,6 +79,10 @@ export default defineNuxtConfig({
   // State Management
   pinia: {
     storesDirs: ['./stores/**'],
+  },
+
+  // Google fonts
+  googleFonts: {
   },
 
   // Development Tools
