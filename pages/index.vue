@@ -93,8 +93,8 @@
     nextId.value++;
   };
 
-  const removeItem = (item: { id: number; text: string; emoji: string }) => {
-    const index = items.value.findIndex((i) => i.id === item.id);
+  const removeItem = (item: { id: number; text: string; emoji: string | undefined }) => {
+    const index = items.value.findIndex(i => i.id === item.id);
     if (index > -1) {
       items.value.splice(index, 1);
     }
