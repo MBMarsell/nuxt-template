@@ -1,7 +1,7 @@
 # Nuxt 3 Starter Template
 
 A small Nuxt 3 Template that can be used for a quicker start when creating a new project.
-Easy to configure for the projects needs and easily extendable with more packages and modules👌
+Easy to configure for the projects needs and easily extendable with more packages and modules🤠
 
 ## Features
 
