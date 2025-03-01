@@ -49,6 +49,6 @@
     "prettier-plugin-tailwindcss": "0.6.11",
     "shadcn-nuxt": "1.0.2",
     "typescript": "5.8.2",
-    "vitest": "3.0.6"
+    "vitest": "3.0.7"
   }
 }
