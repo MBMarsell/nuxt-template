@@ -43,7 +43,7 @@
     "@vueuse/nuxt": "12.7.0",
     "eslint": "9.21.0",
     "eslint-plugin-prettier": "5.2.3",
-    "happy-dom": "17.1.4",
+    "happy-dom": "17.1.8",
     "playwright-core": "1.50.1",
     "prettier": "3.5.2",
     "prettier-plugin-tailwindcss": "0.6.11",
