@@ -338,7 +338,7 @@
       },
       "state": {
         "title": "State Management",
-        "description": "Pinia store for state management",
+        "description": "Pinia stores for state management",
         "count": "Count: {n}",
         "reset": "Reset"
       },
@@ -370,7 +370,7 @@
       },
       "state": {
         "title": "Tilstandshåndtering",
-        "description": "Pinia butikk for tilstandshåndtering",
+        "description": "Pinia stores for tilstandshåndtering",
         "count": "Antall: {n}",
         "reset": "Nullstill"
       },
